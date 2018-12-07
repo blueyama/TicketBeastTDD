@@ -10,6 +10,12 @@ class Concert extends Model
     protected $guarded = [];
     protected $dates = ['date'];
 
+
+    public function scopePublished($query)
+    {
+        return $query->whereNotNull('published_at');
+    }
+
     /**
      * this is accessible in the blade view like so Concert::formatted_date
      * @return mixed
